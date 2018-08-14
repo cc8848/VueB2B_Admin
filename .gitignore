@@ -1,0 +1,19 @@
+dist
+locales/zh.*
+package-lock.json
+.uglify_cache
+yarn-error.log
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# vscode history plugin
+.history

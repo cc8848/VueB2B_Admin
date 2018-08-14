@@ -1,0 +1,10 @@
+dist
+node_modules
+build/config/__dll/manifest
+build/config/__dll/files
+# build/config/__dll__check/manifest
+build/config/__dll__check/files
+package-lock.json
+build/utils/autodll-webpack-plugin
+.uglify_cache
+__entry.config.js
