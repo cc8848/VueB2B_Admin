@@ -1,8 +1,8 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <img src="~assets/imgs/common/AG1.png" class="header-logo">
-      <div class="header-tip" @click="testAlert">{{$t('通用.欢迎来到akugrosir控制台')}} </div>
+      <img src="~assets/imgs/common/gitcat.png" class="header-logo">
+      <div class="header-tip" @click="testAlert">{{$t('通用.欢迎来到VueB2B控制台')}} </div>
       <!-- {{$t('headerCommon.welcome')}} -->
     </div>
     <div class="header-right">
@@ -77,7 +77,7 @@ export default {
   }
 
   &-logo{
-    width: 180px;
+    width: 40px;
   }
 
   &-tip{
