@@ -1,5 +1,7 @@
 # VueB2B_Admin
-基于 Vue/Nuxt + Koa2/mongo的电商平台（管理端）
+基于 Vue/Nuxt + Koa2/mongodb的电商平台（管理端）
+
+前端地址：[VueB2B](https://github.com/kevinwang04/VueB2B)
 
 ## 安装启动：
 

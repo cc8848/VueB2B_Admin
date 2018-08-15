@@ -275,8 +275,8 @@ export default {
       useTargetFileList: [],
       offerTargetFileList: [],
 
-      offerTargetUrl: 'https://akulaku.s3.amazonaws.com/akugrosir/public/coupon/coupon_offer_target.xlsx',
-      useTargetUrl: 'https://akulaku.s3.amazonaws.com/akugrosir/public/coupon/coupon_use_target.xlsx'
+      offerTargetUrl: '',
+      useTargetUrl: ''
     }
   },
   computed: {

@@ -4,7 +4,7 @@ export default {
             console: ''
         },
         domain: {
-            console: 'http://console.akulaku.com'
+            console: ''
         }
     },
     development: {
@@ -12,7 +12,7 @@ export default {
             console: ''
         },
         domain: {
-            console: 'http://test.console.akulaku.com'
+            console: ''
         }
     }
 }

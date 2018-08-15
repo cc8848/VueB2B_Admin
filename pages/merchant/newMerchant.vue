@@ -378,7 +378,7 @@ export default {
         countryId: '1',
         provinceId: 'Jawa Tengah',
         cityId: 'Kabupaten',
-        address: 'akulaku',
+        address: 'address',
         expressArea: '1',
         accountName: 'test@test.com',
         loginPwd: md5(1234),
