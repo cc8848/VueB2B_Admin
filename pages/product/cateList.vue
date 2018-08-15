@@ -224,9 +224,9 @@ export default {
                     children: initCateInfo(item.children) || []
                 }))
             }
-            // ----------------------  删除时候用  ---------------------
+            // ----------------------  获取类目 ---------------------
             try {
-                let {data} = await axios.get('/api/json/velen/public/catalog')
+                let {data} = await axios.get('/api/category')
                 if(data.success) {
                     let cateList = data.data
                     , sortCateList = initCateInfo(cateList.sort((a,b) => a.sort - b.sort))
@@ -257,7 +257,7 @@ export default {
                 name,
                 imgUri: img
             }
-            const {data} = await axios.post('/api/json/velen/admin/catalog/add',param,{formData:true})
+            const {data} = await axios.post('/api/category/add',param)
             if(data.success) {
                 this.initPage()
 
@@ -278,7 +278,7 @@ export default {
             // this[type].img = url
         },
         async beforeEditSubUpload(sub,file) {
-            let {data} = await axios.get(`/api/json/elune/admin/get/s3/url?type=1&cnt=1&contentType=${file.type}`)
+            let {data} = await axios.post(`/api/img/upload`,file)
             if(data.success) {
                 let url = data.data[0].url
                 , key = data.data[0].key
@@ -297,18 +297,12 @@ export default {
             return Promise.reject()
         },
         async beforeAvatarUpload(type,file) {
-            let {data} = await axios.get(`/api/json/elune/admin/get/s3/url?type=1&cnt=1&contentType=${file.type}`)
+            let fData = new FormData();
+            fData.append("file", file)
+            let {data} = await axios.post(`/api/img/upload`,fData)
             if(data.success) {
-                let url = data.data[0].url
-                , key = data.data[0].key
-                , src = data.data[0].src
-                let res = await this.amazonUpload(url,file,{contentType: file.type})
-                if(res.success) {
-                    this[type].img = key 
-                    this[type].src = src
-                } else {
-                    this.$message.error(this.$t('通用.图片上传失败'))
-                }
+                this[type].img = data.data.url
+                this[type].src = data.data.url
             } else {
                 this.$message.error(this.$t('通用.图片上传失败'))
             }
@@ -336,7 +330,7 @@ export default {
                 imgUri: img,
                 parentId: cateId
             }
-            const {data} = await axios.post('/api/json/velen/admin/catalog/add',param,{formData:true})
+            const {data} = await axios.post('/api/category/add',param)
             if(data.success) {
                 // this.getSubClass(cateId)
                 let findedCate = this.cateList.find(item => item.id === cateId)
@@ -414,7 +408,7 @@ export default {
                 imgUri: 'xxx',
                 parentId: subclass.id
             }
-            const {data} = await axios.post('/api/json/velen/admin/catalog/add',newThird,{formData:true})
+            const {data} = await axios.post('/api/category/add',newThird)
             if(data.success) {
                 if(subclass.children) {
                     subclass.children.push(data.data)

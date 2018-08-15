@@ -248,11 +248,6 @@ export default {
     },
     downloadUidTamp() {
       console.log(this.pushForm.uid.split(','))
-      this.exporExcel({
-        data: [["uid"], ...this.pushForm.uid.split(',').map(i => [i])],
-        type: 'xlsx',
-        fileName: 'uid'
-      })
     },
     async beforeAvatarUpload(type,file) {
       let {data} = await axios.get(`/api/json/elune/admin/get/s3/url?type=7&cnt=1`,{headers:{loginType:1}})

@@ -6,7 +6,7 @@ export const state = () => ({
   userInfo: {},
   token: '',
   locales: ['in','en','zh'], //多语言
-  locale: 'in', // 当前语言
+  locale: 'zh', // 当前语言
   pagesCache: { // 列表页缓存页面数据，需求：详情页退回来回到之前翻到的页面
     orderListPage: 1,
     codListPage: 1,
@@ -33,7 +33,7 @@ export const actions = {
   },
 
   async login({ commit, state, getters }, user) {
-    const { data } = await axios.post(`/api/json/windrunner/admin/login`, user, {formData: true})
+    const { data } = await axios.post(`/api/console_login`, user)
     if(data.success) {
         commit('setToken', data.data.token)
         commit('setUserInfo', data.data)

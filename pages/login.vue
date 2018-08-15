@@ -51,7 +51,9 @@ export default {
     , data() {
         return {
         loginForm: {
-            remember: false
+            remember: false,
+            username: 'b2badmin',
+            password: '123456'
         },
         rules: {}
         };
@@ -64,7 +66,7 @@ export default {
             }
             let param = {
                 // countryId: 1,
-                account: this.loginForm.username,
+                username: this.loginForm.username,
                 // password: this.loginForm.password,
                 password: md5(this.loginForm.password),
                 // type: '1',

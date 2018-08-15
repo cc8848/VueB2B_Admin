@@ -33,7 +33,7 @@ export const vendorLogin = async(ctx, next) => {
 
 export const consoleLogin = async(ctx, next) => {
   let { username, password } = ctx.request.body
-  password = md5(password)
+  console.log(ctx.request.body)
   try {
     let user = await Admin.findOne({username: username, password: password,role: 'superAdmin'}).exec()
     let secret = config.jwt.secret
@@ -47,7 +47,8 @@ export const consoleLogin = async(ctx, next) => {
     ctx.body = {
       success: true,
       data: {
-        token: token
+        token: token,
+        userName: username
       }
     }
   } catch (e) {

@@ -7,8 +7,16 @@ const CategorySchema = new Schema({
     type: String,
     required: true
   },
+  isRoot: {
+    type: Boolean,
+    default: false
+  },
   description: String,
-  img: String,
+  imgUri: String,
+  children: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Category'
+  }],
   sort: {
     type: Number,
     default: 1

@@ -36,7 +36,7 @@ router
   .get('/private-articles', checkUserToken, article.getPrivateArticles)
   .get('/archives', article.archives)
   .post('/article', checkUserToken, article.postArticle)
-  .post('/upload', checkUserToken, article.upload)
+  .post('/upload', article.upload)
   .patch('/article', checkUserToken, article.patchArticle)
   .del('/article/:id?', checkUserToken, article.deleteArticle)
 
@@ -51,7 +51,7 @@ router
 
 // ----------------------  大类  ---------------------
 router
-  .post('/category', checkConsoleToken, cateCtl.postCate)
+  .post('/category/add', checkConsoleToken, cateCtl.postCate)
   .get('/category', cateCtl.getCate)
   .post('/category/sort', checkConsoleToken, cateCtl.sortCate)
   .patch('/category/:id?', checkConsoleToken, cateCtl.patchCate)

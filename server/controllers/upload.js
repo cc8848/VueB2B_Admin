@@ -33,6 +33,7 @@ export const postImg = async(ctx,next) => {
   try{
     let form = formidable.parse(ctx.request)
     , uploadDir = 'public/upload/'
+    console.log('form is',form)
     form.encoding = 'utf-8';
     form.keepExtensions = true; //保留后缀
     mkdirs('public/upload');

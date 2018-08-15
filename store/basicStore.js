@@ -20,11 +20,7 @@ export const state = () => ({
 
 export const actions = {
     async getCountryList({ commit, state, getters }) {
-        const { data } = await axios.get(`http://test.console.akulaku.com/api/common/country/list.json?type=1`)
-        if(data.success) {
-            commit('setCountryList', data.data)
-        }
-        return data
+        
     },
 }
 

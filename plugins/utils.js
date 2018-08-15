@@ -1,7 +1,7 @@
 import Vue from "vue";
 import {orderStateList} from './constant/order'
 import {countryList} from './constant/country'
-import XLSX from 'xlsx';
+// import XLSX from 'xlsx';
 // ----------------------
 // js 深拷贝
 // ----------------------
@@ -213,14 +213,6 @@ function preciseTime({time,type}) {
     return new Date(timeOld).getTime()
 }
 
-function exporExcel({data, type = 'xlsx', fileName:FileName}) {
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
-    /* generate file and send to client */
-    XLSX.writeFile(wb, `${FileName}.${type}`);
-}
-
 function s2ab(s) { //字符串转字符流
     let buf = new ArrayBuffer(s.length);
     let view = new Uint8Array(buf);
@@ -255,7 +247,6 @@ export default ({app}) => {
             Vue.prototype.goBack = goBack.bind(app)
             Vue.prototype.objectToFormData = objectToFormData;
             Vue.prototype.preciseTime = preciseTime
-            Vue.prototype.exporExcel = exporExcel
         }
     }
     Vue.use(utils)

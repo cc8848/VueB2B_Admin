@@ -1,15 +1,15 @@
 export default {
   admin: {
     role: 'superAdmin',
-    username: 'akulaku',
+    username: 'b2badmin',
     password: '123456',
     nickname: 'b2bconsole admin',
     avatar: 'avatar.png'
   },
   user: {
     role: 'user',
-    username: 'akulaku',
-    password: 'akulaku001',
+    username: 'b2buser',
+    password: 'user001',
     email: 'test_test@gmail.com',
     nickname: 'b2bconsole',
     motto: 'Never too old to learn',
