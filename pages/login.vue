@@ -5,7 +5,7 @@
             label-width="80px" 
             size="small" 
         >
-            <div class="login-header">b2b console login</div>
+            <div class="login-header">B2B_Admin login</div>
             <div class="login-self-input">
                 <label for="username">{{$t('通用.账号名称')}}：</label>
                 <el-input 
